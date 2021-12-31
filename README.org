@@ -1,18 +1,51 @@
 #+TITLE: Fill sentences correctly
 #+SUBTITLE: Finally, the correct setting for =sentence-end-double-space=
 
+* Explanation
+
+This package provides a mode, =fill-sentences-correctly-mode=, that sets
+=sentence-end-double-space= to ~nil~ but still fills sentences with two spaces after
+the period.
+
+* Illustration
+
+- sample text, unfilled ::
+  #+begin_src
+    The rain in Spain falls mainly on the plain.  Are you
+    or aren't you a spinster?
+    I simply cannot tell any more.
+  #+end_src
+
+- filled when =(setq sentence-end-double-space t)= ::
+  #+begin_src
+    The rain in Spain falls mainly on the plain.  Are you or aren't you not a
+    spinster?  I simply cannot tell any more.
+  #+end_src
+
+- filled when =(setq sentence-end-double-space nil)= ::
+  #+begin_src
+    The rain in Spain falls mainly on the plain. Are you or aren't you a spinster? I
+    simply cannot tell any more.
+  #+end_src
+
+With =fill-sentences-correctly-mode= enabled, filling paragraphs and regions will
+result in the first result, but you'll still be able to use keybindings like
+~M-a~ and ~M-e~ to navigate sentences with a single space after a period.
+
+* Rationale
+
 This is the result of the [[https://lobste.rs/s/c9qsmz/emacs_for_you_72_line_emacs_quickly_set_up#c_1szspx][following comment thread on lobste.rs]] (quoted here for posterity):
 
 - acdw ::
-#+begin_quote
+  #+begin_quote
 I feel like I’m the only person who has sentence-end-double-space set
 to t — I like it because it allows me to easily navigate sentences, and it
 doesn’t matter because when I export the document to another format the
 spaces get properly minimized.
-#+end_quote
+  #+end_quote
 
 - snan ::
-#+begin_quote
+  #+begin_quote
 Hi acdw!♥
 
 I felt like setting it to nil (which I didn’t realize until after a few years)
@@ -23,10 +56,10 @@ a really good job.
 Also, with this set to nil, it works with one or two spaces; with it set to t it
 can’t find sentence boundaries if there’s only one space. I can’t believe that’s
 the default.
-#+end_quote
+  #+end_quote
 
 - acdw ::
-#+begin_quote
+  #+begin_quote
 Hi there :) Nice to see you on lobsters!
 
 Oh my god, you’ve actually convinced me to turn sentence-end-double-space to nil
@@ -36,7 +69,7 @@ sentences, which honestly makes so much sense.
 I think the only place I want to set it is when filling paragraphs, so it fills
 the “proper” (to my eyes anyway) two-spaced sentences, which of course I can
 just add some advice to to fix.  Thanks for the mind-changer, snan!
-#+end_quote
+  #+end_quote
 
 Basically, I was laboring under the impression that =sentence-end-double-space= was telling Emacs the /right/ way to do end-of-sentence spacing, but really it's
 just letting it know how sentences work.  So setting it to nil lets you do
