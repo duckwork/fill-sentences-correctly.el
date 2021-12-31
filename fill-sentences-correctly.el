@@ -68,6 +68,7 @@ unaltered."
   (dlet ((sentence-end-double-space t))
     (apply fn r)))
 
+;;;###autoload
 (define-minor-mode fill-sentences-correctly-mode
   "Set `sentence-end-double-space' to fill sentences correctly.
 It will be set to nil globally for better sentence movement and
