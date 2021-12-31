@@ -1,5 +1,12 @@
 ;;; fill-sentences-correctly.el --- Correctly fill sentences -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2021 Case Duckworth
+
+;; Author: Case Duckworth <acdw@acdw.net>
+;; URL: https://github.com/duckwork/fill-sentences-correctly.el
+;; Package-Version: 1.0.1
+;; Package-Requires: ((emacs "24.4"))
+
 ;;; Commentary:
 
 ;; This is the result of the following comment thread on lobste.rs
