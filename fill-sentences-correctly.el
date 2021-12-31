@@ -57,6 +57,9 @@
   "Which functions to fill sentences correctly around."
   :type '(repeat function))
 
+(defvar fill-sentences-correctly--sentence-end-double-space-orig nil
+  "The original value of `sentence-end-double-space'.")
+
 (defun fill-sentences-correctly (fn &rest r)
   "AROUND ADVICE to fill sentences correctly.
 FN should be one of `fill-region', `fill-paragraph', or other
@@ -74,8 +77,15 @@ fill sentences."
   :keymap nil
   :lighter " .__"
   (if fill-sentences-correctly-mode
-      (dolist (fn fill-sentences-correctly-functions)
-        (advice-add fn :around #'fill-sentences-correctly))
+      (progn                            ; Enable
+        (setq fill-sentences-correctly--sentence-end-double-space-orig
+              sentence-end-double-space
+              sentence-end-double-space nil)
+        (dolist (fn fill-sentences-correctly-functions)
+          (advice-add fn :around #'fill-sentences-correctly)))
+    ;; Disable
+    (setq sentence-end-double-space
+          fill-sentences-correctly--sentence-end-double-space-orig)
     (dolist (fn fill-sentences-correctly-functions)
       (advice-remove fn #'fill-sentences-correctly))))
 
