@@ -85,6 +85,15 @@ there.  It's just that two spaces after a period /should/ be there.
 
 Thus, this package.
 
+** Disclaimer
+
+- snan ::
+#+begin_quote
+🧕 I wouldn’t exactly call it “correctly” since I favor the single spaced style. I don’t mind the quotes ofc.
+
+So if you can make it clear that I’m not an advocate for double-spacing, that’d be great ♥
+#+end_quote
+
 * Installation
 
 Clone this repo into your =load-path= and =require= it like normal.

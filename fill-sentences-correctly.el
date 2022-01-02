@@ -34,6 +34,9 @@
 ;; Thanks for the mind-changer, snan!
 ;; -----------------------------------------------------------------------------
 
+;; (DISCLAIMER: snan in no way supports two spaces after a period, and in fact
+;; single-spaces always.)
+
 ;; Basically, I was laboring under the impression that
 ;; `sentence-end-double-space' was telling Emacs the /right/ way to do
 ;; end-of-sentence spacing, but really it's just letting it know how sentences
